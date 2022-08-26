@@ -1,5 +1,5 @@
 #Example of code used in "Decoupled responses of biodiversity facets driven 
-#from anuran vulnerability to climate and land use changes in predator-prey networks"
+#from anuran vulnerability to climate and land use changes"
 # by Karoline Ceron, Lilian P. Sales, Diego J. Santana, and Mathias M. Pires
 
 
@@ -30,7 +30,7 @@ int$Isoptera<-log(1+int$Isoptera) #transforming more abundant data
 ######################################
 # interaction diversity 
 ########################################
-
+ 
 #creating community matrix
 anura<-row.names(int)
 site<-rep(1, nrow(int)) 
@@ -131,52 +131,53 @@ cont #Contribution of each species or individual to the total volume of one or m
 ######################
 
 #connectance
-con.suarede <-networklevel(suarede, index="connectance")
-con.suarede
+con <-networklevel(int, index="connectance")
+con
 
 #weighted NODF
-nodf.suarede <-networklevel(suarede, index="weighted NODF")
-nodf.suarede #nodf
-suarede.random <- nullmodel(suarede,N=1000, method="vaznull")
-nodf.ram.suarede <- unlist(sapply(suarede.random, networklevel, index="weighted NODF"))
-nodf.ram.suarede.mean <- mean(nodf.ram.suarede) 
-nodf.ram.suarede.sd <- sd(nodf.ram.suarede) 
-delta.nodf.suarede <- nodf.suarede-nodf.ram.suarede.mean
-zscore.nodf<-delta.nodf.suarede/nodf.ram.suarede.sd
+nodf.int <-networklevel(int, index="weighted NODF")
+nodf.int #nodf
+int.random <- nullmodel(int,N=1000, method="vaznull")
+nodf.ram.int <- unlist(sapply(int.random, networklevel, index="weighted NODF"))
+nodf.ram.int.mean <- mean(nodf.ram.int) 
+nodf.ram.int.sd <- sd(nodf.ram.int) 
+delta.nodf.int <- nodf.int-nodf.ram.int.mean
+zscore.nodf<-delta.nodf.int/nodf.ram.int.sd
 zscore.nodf #zscore
 
 
 #modularity
-modsuarede<-computeModules(suarede, method="Beckett", deep = FALSE, deleteOriginalFiles = TRUE, 
+mod<-computeModules(int, method="Beckett", deep = FALSE, deleteOriginalFiles = TRUE, 
                            steps = 1E7, tolerance = 1e-10, experimental = FALSE, forceLPA=FALSE)
 modsuarede@likelihood #modularity
-suarede.random <- nullmodel(suarede,N=100, method="vaznull")
-mod.ram.suarede<- sapply(suarede.random, computeModules, method="Beckett")
-mod.ram <- sapply(mod.ram.suarede, function(x) x@likelihood)
-mod.ram.suarede.mean <- mean(mod.ram) 
-mod.ram.suarede.sd <- sd(mod.ram) 
-delta.mod.suarede <- modsuarede@likelihood-mod.ram.suarede.mean
-zscore.mod<-delta.mod.suarede/mod.ram.suarede.sd
+int.random <- nullmodel(int,N=100, method="vaznull")
+mod.ram.int<- sapply(int.random, computeModules, method="Beckett")
+mod.ram <- sapply(mod.ram.int, function(x) x@likelihood)
+mod.ram.int.mean <- mean(mod.ram) 
+mod.ram.int.sd <- sd(mod.ram) 
+delta.mod.int <- modsuarede@likelihood-mod.ram.int.mean
+zscore.mod<-delta.mod.int/mod.ram.int.sd
 zscore.mod #zscore
 
 #H2
-h2.suarede <-networklevel(suarede, index="H2")
-h2.suarede #specialization
-suarede.random <- nullmodel(suarede,N=1000, method="r2dtable")
-h2.ram.suarede <- unlist(sapply(suarede.random, networklevel, index="H2"))
-h2.ram.suarede.mean <- mean(h2.ram.suarede) 
-h2.ram.suarede.sd <- sd(h2.ram.suarede) 
-delta.h2.suarede <- (h2.suarede-h2.ram.suarede.mean)
-zscore.h2<-delta.h2.suarede/h2.ram.suarede.sd
+h2.int <-networklevel(int, index="H2")
+h2.int #specialization
+int.random <- nullmodel(int,N=1000, method="r2dtable")
+h2.ram.int <- unlist(sapply(int.random, networklevel, index="H2"))
+h2.ram.int.mean <- mean(h2.ram.int) 
+h2.ram.int.sd <- sd(h2.ram.int) 
+delta.h2.int <- (h2.int-h2.ram.int.mean)
+zscore.h2<-delta.h2.int/h2.ram.int.sd
 zscore.h2 #zscore
 
 #functional complementarity
-fc.suarede <-networklevel(suarede, index="functional complementarity", dist ='horn', weighted=TRUE)
+fc.suarede <-networklevel(int, index="functional complementarity", dist ='horn', weighted=TRUE)
 fc.suarede
 
 #weighted degree
-deg<-degree_w(suarede,measure=c("degree"), alpha=0.5) 
+deg<-degree_w(int,measure=c("degree"), alpha=0.5) 
 deg<-as.data.frame(deg)
 deg
+
 
 
