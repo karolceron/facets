@@ -3,6 +3,10 @@ Example of code used in the article "Decoupled responses of biodiversity facets 
 
 [![DOI](https://zenodo.org/badge/522530874.svg)](https://zenodo.org/badge/latestdoi/522530874)
 
-script: Example of the code used to perform the analysis of the paper
+scripts 1 - 5: Example of the code used to perform the analysis of the paper
 
-/data: Example of data used to run the example code
+/package: Necessary package version to perform the analysis
+
+/data: Data used to run the codes
+
+/occurrence_data: Merged database of anuran distribution (Georeferenced data curated plus our own sampling in Mato Grosso do Sul state)
