@@ -12,5 +12,6 @@ scripts 1 - 5: Example of the code used to perform the analysis of the paper
 /occurrence_data: Merged database of anuran distribution (Georeferenced data curated plus our own sampling in Mato Grosso do Sul state)
 
 <p align="center">
-<img src="https://user-images.githubusercontent.com/65569572/222738425-80b1b58c-69c4-4898-a912-464e4bfc1810.jpg" width=30% height=30%>
-Source: Midjourney
+<img src="https://user-images.githubusercontent.com/65569572/222742053-b328df8f-32d4-4aa3-a19a-cb535fa1e7df.jpg" width=40% height=40%>
+
+###### Picture Source: Midjourney
