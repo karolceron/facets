@@ -12,6 +12,6 @@ scripts 1 - 5: Example of the code used to perform the analysis of the paper
 /occurrence_data: Merged database of anuran distribution (Georeferenced data curated plus our own sampling in Mato Grosso do Sul state)
 
 <p align="center">
-<img src="https://user-images.githubusercontent.com/65569572/222742053-b328df8f-32d4-4aa3-a19a-cb535fa1e7df.jpg" width=40% height=40%>
+<img src="https://user-images.githubusercontent.com/65569572/222743101-a812af85-5280-4d44-8f99-cc6956b9148a.jpg" width=70% height=70%>
 
-###### Picture Source: Midjourney
+> Cuyaba dwarf frog (*Physalaemus nattereri*) trying to breed in a dry pond
