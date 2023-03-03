@@ -10,3 +10,5 @@ scripts 1 - 5: Example of the code used to perform the analysis of the paper
 /data: Data used to run the codes
 
 /occurrence_data: Merged database of anuran distribution (Georeferenced data curated plus our own sampling in Mato Grosso do Sul state)
+
+
